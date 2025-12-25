@@ -33,3 +33,40 @@ function categorizeProducts(products) {
 
 console.log(categorizeProducts(products));
 
+
+
+### Q2: Multi-level Filtering (10 mins)
+
+Filter users who have completed at least 2 courses with a rating above 4.0.
+
+function filterUsers(users) {
+  return users.filter(user => {
+    let count = 0;
+
+    for (let i = 0; i < user.courses.length; i++) {
+      const course = user.courses[i];
+
+      if (course.completed && course.rating > 4.0) {
+        count++;
+      }
+    }
+
+    return count >= 2;
+  });
+}
+
+console.log(filterUsers(users));
+ output:
+ [
+  {
+    id: 1,
+    name: 'Alice',
+    courses: [...]
+  },
+  {
+    id: 3,
+    name: 'Charlie',
+    courses: [...]
+  }
+]
+
